@@ -31,6 +31,6 @@ node {
         /*docker.withRegistry('https://registry.hub.docker.com', 'wincred') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")*/
-        }
+        //}
     }
 }
