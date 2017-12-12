@@ -1,5 +1,5 @@
 node {
-    def app
+    //def app
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -14,16 +14,16 @@ node {
         /*app = docker.build("synthiarosetta/mysecondapp")*/
     }
 
-    stage('Test image') {
+    //stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
         //sh 'sudo docker run -p 8888:5000 --name mysecondapp synthiarosetta/mysecondapp'
         /*app.inside {
             sh 'echo "Tests passed"'
         }*/
-    }
+    //}
 
-    stage('Push image') {
+    //stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
@@ -32,5 +32,5 @@ node {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")*/
         //}
-    }
+    //}
 }
