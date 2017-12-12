@@ -1,5 +1,5 @@
 node {
-    //def app
+    def app
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -10,18 +10,18 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        sh 'sudo docker build -t synthiarosetta/mysecondapp .'
-        /*app = docker.build("synthiarosetta/mysecondapp")*/
+        //sh 'sudo docker build -t synthiarosetta/mysecondapp .'
+        app = docker.build("synthiarosetta/mysecondapp")
     }
 
-    //stage('Test image') {
+    stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
-        sh 'sudo docker run -p 8888:5000 --name mysecondapp synthiarosetta/mysecondapp'
-        /*app.inside {
+        //sh 'sudo docker run -p 8888:5000 --name mysecondapp synthiarosetta/mysecondapp'
+        app.inside {
             sh 'echo "Tests passed"'
-        }*/
-    //}
+        }
+    }
 
     //stage('Push image') {
         /* Finally, we'll push the image with two tags:
