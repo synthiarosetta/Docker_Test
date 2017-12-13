@@ -20,7 +20,7 @@ node {
         sh 'sudo docker ps -a'
         sh 'sudo docker rm -f mysecondapp'
         sh 'sudo docker run -p 8888:5000 --name mysecondapp synthiarosetta/mysecondapp'
-        sh 'sudo docker stop --time 60 mysecondapp'
+        sh 'sudo docker stop mysecondapp'
         echo "Tests passed"
         /*app.inside {
             sh 'echo "Tests passed"'
