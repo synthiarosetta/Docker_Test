@@ -21,7 +21,7 @@ node {
         /* remove old container */
         //sh 'sudo docker rm -f mysecondapp'
         /* run new container */
-        sh 'sudo docker run -p 8888:5000 --name mysecondapp synthiarosetta/mysecondapp 'trap "echo Docker Container Stopped" EXIT; sleep 60''
+        sh 'sudo docker run -p 8888:5000 --name mysecondapp synthiarosetta/mysecondapp --sleep 60
         //sh 'sudo docker stop mysecondapp'
         echo "Tests passed"
         /*app.inside {
