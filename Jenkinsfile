@@ -17,8 +17,9 @@ node {
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
-        //sh 'sudo docker run -p 8888:5000 --name mysecondapp synthiarosetta/myfirstapp'
         sh 'sudo docker ps -a'
+        sh 'sudo docker rm -f mysecondapp'
+        sh 'sudo docker run -p 8888:5000 --name mysecondapp synthiarosetta/mysecondapp'
         echo "Tests passed"
         /*app.inside {
             sh 'echo "Tests passed"'
