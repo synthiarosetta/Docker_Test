@@ -28,14 +28,16 @@ node {
         }*/
     }
 
-    //stage('Push image') {
+    stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
+        sh 'sudo docker login --username synthiarosetta --password Zara@0112'
+        sh 'sudo docker push synthiarosetta/testapp:v1.0.0'
         /*docker.withRegistry('https://registry.hub.docker.com', 'wincred') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")*/
         //}
-    //}
+    }
 }
