@@ -31,7 +31,7 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        sh 'sudo docker login --username synthiarosetta --password-stdin Zara@0112'
+        sh 'sudo docker login --username synthiarosetta --password Zara@0112'
         sh 'sudo docker push synthiarosetta/testapp'
         sh 'sudo docker rm -f testapp'
         sh 'sudo docker ps -a'
