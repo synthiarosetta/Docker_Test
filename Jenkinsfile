@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        sh 'sudo docker build -t synthiarosetta/mysecondapp .'
+        sh 'sudo docker build -t synthiarosetta/testapp .'
         //app = docker.build("synthiarosetta/mysecondapp")
     }
 
@@ -19,9 +19,9 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
         sh 'sudo docker ps -a'
         /* remove old container */
-        sh 'sudo docker rm -f mysecondapp'
+        sh 'sudo docker rm -f testapp'
         /* run new container */
-        sh 'sudo docker run -d -p 8888:5000 --name mysecondapp synthiarosetta/mysecondapp'
+        sh 'sudo docker run -d -p 8888:5000 --name testapp synthiarosetta/testapp'
         echo "Tests passed"
         /*app.inside {
             sh 'echo "Tests passed"'
@@ -34,7 +34,7 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         sh 'sudo docker login --username synthiarosetta --password Zara@0112'
-        sh 'sudo docker push synthiarosetta/mysecondapp'
+        sh 'sudo docker push synthiarosetta/testapp:v1'
         /*docker.withRegistry('https://registry.hub.docker.com', 'wincred') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")*/
