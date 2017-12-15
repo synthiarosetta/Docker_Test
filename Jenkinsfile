@@ -34,7 +34,7 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         sh 'sudo docker login --username synthiarosetta --password Zara@0112'
-        sh 'sudo docker push synthiarosetta/testapp:v1'
+        sh 'sudo docker push synthiarosetta/testapp'
         sh 'sudo docker rm -f testapp'
         sh 'sudo docker ps -a'
         /*docker.withRegistry('https://registry.hub.docker.com', 'wincred') {
