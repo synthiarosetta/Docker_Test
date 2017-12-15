@@ -36,6 +36,7 @@ node {
         sh 'sudo docker login --username synthiarosetta --password Zara@0112'
         sh 'sudo docker push synthiarosetta/testapp:v1'
         sh 'sudo docker rm -f testapp'
+        sh 'sudo docker ps -a'
         /*docker.withRegistry('https://registry.hub.docker.com', 'wincred') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")*/
