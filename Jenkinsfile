@@ -21,7 +21,7 @@ node {
         /* remove old container */
         //sh 'sudo docker rm -f testapp'
         /* run new container */
-        sh 'sudo docker run -d -p 8888:5000 --name testapp synthiarosetta/testapp'
+        sh 'sudo docker run -d -p 9999:5000 --name testapp synthiarosetta/testapp'
         echo "Tests passed"
         /*app.inside {
             sh 'echo "Tests passed"'
