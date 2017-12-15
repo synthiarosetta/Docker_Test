@@ -19,7 +19,7 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
         sh 'sudo docker ps -a'
         /* remove old container */
-        sh 'sudo docker rm -f mysecondapp'
+        //sh 'sudo docker rm -f mysecondapp'
         /* run new container */
         sh 'sudo docker run -d -p 8888:5000 --name mysecondapp synthiarosetta/mysecondapp'
         echo "Tests passed"
