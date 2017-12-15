@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: testapp
-        image: synthiarosetta/testapp:v1
+        image: synthia.azurecr.io/synthiarosetta/testapp:v1
         ports:
         - containerPort: 9999
