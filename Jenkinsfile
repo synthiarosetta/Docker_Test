@@ -18,7 +18,6 @@ node {
     stage('Test image') {
         /* Listing both running and stopped containers */
         sh 'sudo docker ps -a'
-        sh 'sudo docker rm -f testapp1'
         /* Testing docker image */
         sh 'sudo docker run -d -p 9999:5000 --name testapp1 synthiarosetta/testapp1'
         echo "Tests passed"
