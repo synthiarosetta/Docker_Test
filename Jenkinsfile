@@ -7,7 +7,7 @@ node {
 
     stage('Build image') {
         /* Building docker image */
-        sh 'sudo docker build -t synthiarosetta/testapp .'
+        sh 'sudo docker build -t synthiarosetta/testapp1 .'
         //app = docker.build("synthiarosetta/mysecondapp")
     }
 
@@ -15,7 +15,7 @@ node {
         /* Listing both running and stopped containers */
         sh 'sudo docker ps -a'
         /* Testing docker image */
-        sh 'sudo docker run -d -p 9999:5000 --name testapp synthiarosetta/testapp'
+        sh 'sudo docker run -d -p 9999:5000 --name testapp1 synthiarosetta/testapp1'
         echo "Tests passed"
     }
 
@@ -23,9 +23,9 @@ node {
         /* Login to Docker Hub */
         sh 'sudo docker login --username synthiarosetta --password Zara@0112'
         /* Pushing docker image to Docker Hub */
-        sh 'sudo docker push synthiarosetta/testapp'
+        sh 'sudo docker push synthiarosetta/testapp1'
         /* Removing the docker container */
-        sh 'sudo docker rm -f testapp'
+        sh 'sudo docker rm -f testapp1'
         /* Checking if the container has been removed*/
         sh 'sudo docker ps -a'
     }
