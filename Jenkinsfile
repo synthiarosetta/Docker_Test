@@ -38,7 +38,7 @@ node {
         echo "Pushing image to AKS"
         stage('Deploy') {
         withCredentials([azureServicePrincipal('principal-credentials-id')]) {
-            sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
+            sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t 77428205-87ff-4048-a645-91b337240228'
             sh 'az account set -s $AZURE_SUBSCRIPTION_ID'
             sh 'az resource list'
         }
