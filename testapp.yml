@@ -37,4 +37,4 @@ spec:
   - port: 9999
     targetPort: 80
   selector:
-    app: testapp
+    app: testapp1
