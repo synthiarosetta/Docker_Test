@@ -1,5 +1,9 @@
+import groovy.json.JsonSlurper
 node {
 
+    def container
+    def acrSettings
+    
     stage('Clone repository') {
         /* Clone the GitHub repository to our workspace */
         checkout scm
