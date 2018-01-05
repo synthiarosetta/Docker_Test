@@ -1,26 +1,36 @@
-apiVersion: apps/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: testapp
+  name: testapp1
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: testapp
+        app: testapp1
     spec:
       containers:
-      - name: testapp
-        image: synthia.azurecr.io/synthiarosetta/testapp:v1
-        ports:
-        - containerPort: 9999
----        
+        - name: testapp1
+          image: synthia.azurecr.io/synthiarosetta/testapp1:v1
+          ports:
+            - containerPort: 9999
+          readinessProbe:
+            tcpSocket:
+              port: 9999
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 9999
+            initialDelaySeconds: 15
+            periodSeconds: 20
+---   
 apiVersion: v1
 kind: Service
 metadata:
-  name: testapp
+  name: testapp1
   labels:
-    app: testapp
+    app: testapp1
 spec:
   type: LoadBalancer
   ports:
