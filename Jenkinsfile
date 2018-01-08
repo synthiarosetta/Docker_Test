@@ -36,5 +36,6 @@ node {
             sh 'az account set -s 9b7c056a-1535-4914-8dc0-e4678ef457b3'
             sh 'az resource list'
         }
+        echo "Success!"
     }
 }
