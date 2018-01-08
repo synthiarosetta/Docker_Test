@@ -1,8 +1,8 @@
-//import groovy.json.JsonSlurper
+import groovy.json.JsonSlurper
 node {
 
-    //def container
-    //def acrSettings
+    def container
+    def acrSettings
     
     stage('Clone repository') {
         /* Clone the GitHub repository to our workspace */
@@ -37,7 +37,11 @@ node {
     stage('Push image to AKS'){
         echo "Pushing image to AKS"
         stage('Deploy') {
-        
+        withCredentials([azureServicePrincipal('dad70dc3-4a02-4d97-991b-6444402f9220')]) {
+            sh 'az login --service-principal -u d982dd65-33e3-4c33-b6d6-987b6e7c1561 -p TbSvuXUlBG6bKKm7w3X/F1cxZWtyUcddzTTGNQd31YE= -t 77428205-87ff-4048-a645-91b337240228'
+            sh 'az account set -s 9b7c056a-1535-4914-8dc0-e4678ef457b3'
+            sh 'az resource list'
+        }
       }
     }
 }
