@@ -1,14 +1,4 @@
-import groovy.json.JsonSlurper
 node {
-
-    def container
-    def acrSettings
-    
-    withCredentials([azureServicePrincipal('48fd2f00-b263-46e2-8e89-13f190f2bf85')]) {
-        sh 'az login --service-principal -u d982dd65-33e3-4c33-b6d6-987b6e7c1561 -p TbSvuXUlBG6bKKm7w3X/F1cxZWtyUcddzTTGNQd31YE= -t 77428205-87ff-4048-a645-91b337240228'
-        sh 'az account set -s 9b7c056a-1535-4914-8dc0-e4678ef457b3'
-        sh 'az resource list'
-    }
     
     stage('Clone repository') {
         /* Clone the GitHub repository to our workspace */
@@ -41,6 +31,10 @@ node {
     }
     
     stage('Deploy') {
-         echo 'Orchestrating a new deployment with kubectl is a simple exercise left to the reader ;)'
+         withCredentials([azureServicePrincipal('48fd2f00-b263-46e2-8e89-13f190f2bf85')]) {
+            sh 'az login --service-principal -u d982dd65-33e3-4c33-b6d6-987b6e7c1561 -p TbSvuXUlBG6bKKm7w3X/F1cxZWtyUcddzTTGNQd31YE= -t 77428205-87ff-4048-a645-91b337240228'
+            sh 'az account set -s 9b7c056a-1535-4914-8dc0-e4678ef457b3'
+            sh 'az resource list'
+        }
     }
 }
