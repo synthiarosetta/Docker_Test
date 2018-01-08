@@ -39,7 +39,7 @@ node {
         stage('Deploy') {
         withCredentials([azureServicePrincipal('principal-credentials-id')]) {
             sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t 77428205-87ff-4048-a645-91b337240228'
-            sh 'az account set -s $AZURE_SUBSCRIPTION_ID'
+            sh 'az account set -s 9b7c056a-1535-4914-8dc0-e4678ef457b3'
             sh 'az resource list'
         }
       }
