@@ -43,7 +43,8 @@ node {
             sh 'sudo az aks install-cli'
             sh 'sudo az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster'
             sh 'sudo kubectl get nodes'
-            sh 'sudo '        
+            sh 'sudo kubectl create -f testapp.yml'
+            sh 'sudo kubectl get service testapp1'
             echo "Success!"
         }    
     }
