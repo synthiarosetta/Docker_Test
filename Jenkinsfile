@@ -31,7 +31,9 @@ node {
     }
     
     stage('Deploy') {
-        
-        echo "Success!"
+        withCredentials([azureServicePrincipal('d982dd65-33e3-4c33-b6d6-987b6e7c1561')]) {
+            sh 'az resource list'
+            echo "Success!"
+        }
     }
 }
