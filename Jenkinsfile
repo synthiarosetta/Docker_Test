@@ -41,9 +41,7 @@ node {
             sh 'sudo az login --service-principal -u d982dd65-33e3-4c33-b6d6-987b6e7c1561 -p TbSvuXUlBG6bKKm7w3X/F1cxZWtyUcddzTTGNQd31YE= -t 77428205-87ff-4048-a645-91b337240228'
             sh 'sudo az account set -s 9b7c056a-1535-4914-8dc0-e4678ef457b3'
             sh 'sudo az resource list'
-			//sh 'sudo az provider register -n Microsoft.ContainerService'
-			//sh 'sudo az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
-'
+	    
             //sh 'sudo az aks install-cli'
             //sh 'sudo az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster'
             //sh 'sudo kubectl get nodes'
