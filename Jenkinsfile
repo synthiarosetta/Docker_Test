@@ -42,7 +42,7 @@ node {
             sh 'sudo az account set -s 9b7c056a-1535-4914-8dc0-e4678ef457b3'
             sh 'sudo az resource list'
 	    
-            //sh 'sudo az aks install-cli'
+            sh 'sudo az aks install-cli'
             //sh 'sudo az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster'
             //sh 'sudo kubectl get nodes'
             sh 'sudo kubectl create -f testapp.yml'
