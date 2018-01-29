@@ -21,7 +21,7 @@ node {
 
     stage('Push image to Docker Hub') {
         /* Login to Docker Hub */
-        sh 'sudo docker login --username synthiarosetta --password Zara@0112'
+        
         /* Pushing docker image to Docker Hub */
         sh 'sudo docker push synthiarosetta/testapp1'
         /* Removing the docker container */
