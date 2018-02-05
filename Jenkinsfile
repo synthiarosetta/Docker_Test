@@ -8,7 +8,6 @@ node {
     stage('Build image') {
         /* Building docker image */
         sh 'sudo docker build -t synthiarosetta/testapp1 .'
-        //app = docker.build("synthiarosetta/mysecondapp")
     }
 
     stage('Test image') {
