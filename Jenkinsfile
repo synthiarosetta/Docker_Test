@@ -20,7 +20,7 @@ node {
 
     stage('Push image to Docker Hub') {
         /* Login to Docker Hub */
-        
+        **Paste login credentials here
         /* Pushing docker image to Docker Hub */
         sh 'sudo docker push synthiarosetta/testapp1'
         /* Removing the docker container */
@@ -30,29 +30,6 @@ node {
     }
     
     stage('Deploy') {
-    withCredentials([azureServicePrincipal('d982dd65-33e3-4c33-b6d6-987b6e7c1561')]) {
-	        /* Installing azure-cli */
-            sh 'sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
-     sudo tee /etc/apt/sources.list.d/azure-cli.list'
-            sh 'sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893'
-            sh 'sudo apt-get install apt-transport-https'
-            sh 'sudo apt-get update && sudo apt-get install azure-cli'
-			/* Checking version of azure-cli */
-            sh 'sudo az --version'
-			/* Logging in to azure */
-            sh 'sudo az login --service-principal -u d982dd65-33e3-4c33-b6d6-987b6e7c1561 -p TbSvuXUlBG6bKKm7w3X/F1cxZWtyUcddzTTGNQd31YE= -t 77428205-87ff-4048-a645-91b337240228'
-            sh 'sudo az account set -s 9b7c056a-1535-4914-8dc0-e4678ef457b3'
-            sh 'sudo az resource list'
-			/* Installing Kubectl CLI */
-            sh 'sudo az aks install-cli'
-			/* Connect with kubectl */
-            sh 'sudo az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster'
-			sh 'sudo kubectl get nodes'
-			/* Creating deployment and service using kubectl */
-            sh 'sudo kubectl create -f testapp.yml'
-			sh 'sudo kubectl get deployment testapp1'
-            sh 'sudo kubectl get service testapp1'
-            echo "Success!"
-        }    
+    **Paste deployment code here
     }
 }
