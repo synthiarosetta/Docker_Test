@@ -57,5 +57,4 @@ node {
             echo "Success!"
         }    
     }
-    }
 }
